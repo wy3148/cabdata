@@ -9,7 +9,7 @@ Features: <br />
 3 Use can choose to get those information from cache or from db directly<br />
 4 User can also clear the cached data<br />
 
-Backend cache:
+Backend cache:<br />
 1 So far cache is implemented with 'LRU' cache. To support restful API and go cocurrency,
 We implement a thread-safe LRU cache with golang opensource code.<br />
 
