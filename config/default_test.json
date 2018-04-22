@@ -1,0 +1,14 @@
+{
+    "SqlConfig": {
+        "Url": "localhost:3306",
+        "Username": "hdb",
+        "Password": "iop123hdb",
+        "Database": "nf_central"
+    },
+    "ServerConfig": {
+        "ServerUrl": "localhost:8080"
+    },
+    "CacheConfig": {
+        "ElementSize": 1000000
+    }
+}

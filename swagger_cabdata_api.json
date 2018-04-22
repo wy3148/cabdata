@@ -1,0 +1,149 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "cabdata apo",
+        "description": "API service for cabdata application",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "cabdata API team"
+        },
+        "license": {
+            "name": "MIT"
+        }
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/trips": {
+            "get": {
+                "description": "get number of trips",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "description": "the unique id of driver, users can add this parameter multiple times in a single GET request ",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "date",
+                        "type": "string",
+                        "description": "the date time as the format: year-month-day, 2013-12-31",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "cache",
+                        "type": "boolean",
+                        "description": "fetch the data from the cache or not",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of trips.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/trip"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "bad request",
+                        "schema": {
+                            "$ref": "#/definitions/errorResult"
+                        }
+                    },
+                    "500": {
+                        "description": "internal error",
+                        "schema": {
+                            "$ref": "#/definitions/errorResult"
+                        }
+                    }
+                }
+            }
+        },
+        "/trips/cache": {
+            "delete": {
+                "description": "clear cache date",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "description": "the unique id of driver, without this parameter, it wil clear all cache",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "clear cached data",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/successClean"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "trip": {
+            "type": "object",
+            "required": [
+                "Id",
+                "Trips"
+            ],
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Trips": {
+                    "type": "integer"
+                }
+            }
+        },
+        "errorResult": {
+            "type": "object",
+            "required": [
+                "Id",
+                "Trips"
+            ],
+            "properties": {
+                "Result": {
+                    "type": "string"
+                },
+                "ErrorMessage": {
+                    "type": "string"
+                }
+            }
+        },
+        "successClean": {
+            "type": "object",
+            "properties": {
+                "Result": {
+                    "type": "string",
+                    "enum": [
+                        "success"
+                    ]
+                }
+            }
+        }
+    }
+}
