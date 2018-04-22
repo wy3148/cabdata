@@ -3,17 +3,17 @@
 
 ## Design
 
-Features:
-1 Cabdata application provide restful API service.
-2 Users can all service to get trips information for NY drivers.
-3 Use can choose to get those information from cache or from db directly
-4 User can also clear the cached data
+Features: <br />
+1 Cabdata application provide restful API service. <br />
+2 Users can all service to get trips information for NY drivers.<br />
+3 Use can choose to get those information from cache or from db directly<br />
+4 User can also clear the cached data<br />
 
 Backend cache:
 1 So far cache is implemented with 'LRU' cache. To support restful API and go cocurrency,
-We implement a thread-safe LRU cache with golang opensource code.
+We implement a thread-safe LRU cache with golang opensource code.<br />
 
-2 We design system correctly so we could use other cache system like redis in future.
+2 We design system correctly so we could use other cache system like redis in future.<br />
 
 ## Install And the API description
 
