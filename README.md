@@ -83,7 +83,9 @@ curl -X DELETE 'http://localhost:8080/trips/cache?id=FF2C42685FE5822F7A6DE63D32E
 ```
 
 Clear cache for mulitple id
+```
 curl -X DELETE 'http://localhost:8080/trips/cache?id=FF2C42685FE5822F7A6DE63D32ED8193&id=F4FA02D140DE01950D4691AAFC9AAC8F'
+```
 
 Clear all cached data
 ```
